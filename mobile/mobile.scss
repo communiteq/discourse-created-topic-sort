@@ -7,15 +7,16 @@
     font-size: var(--font-down-1);
     span.relative-date {
       pointer-events: none;
-      // vertical-align: text-top;
       float: unset;
       margin: unset;
     }
     margin-right: 3px;
-
   }
 }
-.topic-list .topic-item-metadata:has(> .topic-item-stats__mobile-created-date) .topic-item-stats .num.activity {
+.topic-list
+  .topic-item-metadata:has(> .topic-item-stats__mobile-created-date)
+  .topic-item-stats
+  .num.activity {
   opacity: 0;
   visibility: hidden;
 }
