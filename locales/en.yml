@@ -3,3 +3,9 @@ en:
     description: "TODO"
     settings:
       example_setting: "A description of a setting."
+  filters:
+    created_date:
+      title: "Created"
+      help: "topics sorted by creation date"
+  created_date_title: "Created"
+  sr_created_date_title: "Sort by created date"

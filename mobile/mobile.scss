@@ -1,0 +1,22 @@
+.topic-item-metadata {
+  position: relative;
+  .topic-item-stats__mobile-created-date {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: var(--font-down-1);
+    span.relative-date {
+      pointer-events: none;
+      float: unset;
+      margin: unset;
+    }
+    margin-right: 3px;
+  }
+}
+.topic-list
+  .topic-item-metadata:has(> .topic-item-stats__mobile-created-date)
+  .topic-item-stats
+  .num.activity {
+  opacity: 0;
+  visibility: hidden;
+}

@@ -1,0 +1,11 @@
+{{#if view.mobileView}}
+{{#if view.currentOrderIsCreated}}
+<div class="topic-item-stats__mobile-created-date">
+  {{#if view.createdBumpedSame}}
+    {{~format-date topic.createdAt format="tiny" noTitle="true"}}
+  {{else}}
+    {{~format-date topic.bumpedAt format="tiny" noTitle="true"}} / {{format-date topic.createdAt format="tiny" noTitle="true"}}
+  {{/if}}
+</div>
+{{/if}}
+{{/if}}
