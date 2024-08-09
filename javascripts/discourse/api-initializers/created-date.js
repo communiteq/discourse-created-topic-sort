@@ -1,7 +1,9 @@
 import { apiInitializer } from "discourse/lib/api";
+import { longDate } from "discourse/lib/formatter";
 import NavItem from "discourse/models/nav-item";
 import I18n from "I18n";
 // import TopicListHeaderCreatedColumn from "../components/topic-list-header-created-column";
+
 
 export default apiInitializer("1.30.0", (api) => {
   if (settings.enable_sort_by_created_date_nav_bar_item) {
@@ -15,15 +17,21 @@ export default apiInitializer("1.30.0", (api) => {
         return `${path}?order=created`;
       },
       forceActive: (category, args, router) => {
-        const queryParams = router.currentRoute.queryParams;
+        const currentRoute = router.currentRoute;
         return (
-          queryParams &&
-          Object.keys(queryParams).length === 1 &&
-          queryParams["order"] === "created"
+          currentRoute.attributes.filterType === 'latest' &&
+          currentRoute.queryParams?.order === "created"
         );
       },
     });
   }
+
+  api.modifyClass("model:topic", {
+    get createdAtTitle() {
+      return I18n.t("topic.created_at", { date: longDate(this.createdAt) });
+    }
+  });
+  
   // note to self: don't use the topic-list-header.gjs
   // it is behind the experimental glimmer topic list groups
   // Once it is ready, can use the following:
