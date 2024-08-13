@@ -2,6 +2,12 @@ import EmberObject from "@ember/object";
 import { relativeAge } from "discourse/lib/formatter";
 
 export default class extends EmberObject {
+  init() {
+    super.init(...arguments);
+    this.addObserver("session.topicList", this, () => {
+      this.notifyPropertyChange("currentOrderIsCreated");
+    });
+  }
   get mobileView() {
     return this.site.mobileView;
   }

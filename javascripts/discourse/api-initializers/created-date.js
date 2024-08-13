@@ -26,6 +26,7 @@ export default apiInitializer("1.30.0", (api) => {
   }
 
   api.modifyClass("model:topic", {
+    pluginId: "created-date",
     get createdAtTitle() {
       return I18n.t("topic.created_at", { date: longDate(this.createdAt) });
     },
