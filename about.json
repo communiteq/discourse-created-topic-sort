@@ -2,7 +2,7 @@
   "name": "Created Topic Sort",
   "component": true,
   "authors": "Alteras",
-  "about_url": "TODO: Put your theme's public repo or Meta topic URL here",
+  "about_url": "https://meta.discourse.org/t/created-topic-sort/321521",
   "license_url": "https://github.com/Alteras1/discourse-created-topic-sort/blob/main/LICENSE",
   "learn_more": "Adds the created date to the topic list and allows users to sort by it.",
   "theme_version": "1.0.0",
