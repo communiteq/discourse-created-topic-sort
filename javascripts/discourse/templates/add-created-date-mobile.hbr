@@ -1,11 +1,19 @@
 {{#if view.mobileView}}
-{{#if view.currentOrderIsCreated}}
-<div class="topic-item-stats__mobile-created-date">
-  {{#if view.createdBumpedSame}}
-    {{~format-date topic.createdAt format="tiny" noTitle="true"}}
-  {{else}}
-    {{~format-date topic.bumpedAt format="tiny" noTitle="true"}} / {{format-date topic.createdAt format="tiny" noTitle="true"}}
+  {{#if view.currentOrderIsCreated}}
+    {{#unless view.createdBumpedSame}}
+      <div class="topic-item-stats__mobile-created-date age" data-has-created>
+        <a href="{{topic.lastPostUrl}}">{{format-date
+            topic.bumpedAt
+            format="tiny"
+            noTitle="true"
+          }}</a>
+        /
+        <a href="{{topic.firstPostUrl}}">{{format-date
+            topic.createdAt
+            format="tiny"
+            noTitle="true"
+          }}</a>
+      </div>
+    {{/unless}}
   {{/if}}
-</div>
-{{/if}}
 {{/if}}
