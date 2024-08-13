@@ -5,18 +5,33 @@
     bottom: 0;
     right: 0;
     font-size: var(--font-down-1);
+    z-index: 5;
+    margin-right: 3px;
+
     span.relative-date {
-      pointer-events: none;
       float: unset;
       margin: unset;
     }
-    margin-right: 3px;
   }
 }
 .topic-list
-  .topic-item-metadata:has(> .topic-item-stats__mobile-created-date)
-  .topic-item-stats
+  .topic-item-metadata:has(
+    > .topic-item-stats__mobile-created-date[data-has-created]
+  )
+  .topic-item-stats {
+  flex-flow: row wrap;
   .num.activity {
-  opacity: 0;
-  visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: inline-block;
+    position: relative;
+    .age.activity .relative-date {
+      width: 0;
+      font-stretch: ultra-condensed;
+      &::before {
+        content: attr(data-time);
+      }
+    }
+  }
 }
